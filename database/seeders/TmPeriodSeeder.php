@@ -1,0 +1,23 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class TmPeriodSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $periods = [
+            ['id' => 1, 'period' => date('Y'), 'status' => 'Y', 'created_at' => now()],
+        ];
+
+        DB::table('tm_periods')->insert($periods);
+    }
+}
