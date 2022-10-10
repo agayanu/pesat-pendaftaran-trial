@@ -83,6 +83,9 @@
 </head>
 <body>
     <img src="{{url('images/'.$school->letter_head)}}" width="100%" alt="">
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+        TRIAL MODE
+    </div>
 	<center>
 		<h4 class="head1">BUKTI PEMBAYARAN KEUANGAN SISWA BARU</h4>
         <h5 class="head2">KELAS {{strtoupper($data_daftar->grade)}}</h5>

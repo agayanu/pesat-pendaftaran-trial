@@ -25,7 +25,10 @@ class DaftarController extends Controller
         $genders   = DB::table('tm_genders')->select('id','name')->get();
         $si        = DB::table('school_infos')->select('name','icon')->first();
         $sisosmed  = DB::table('school_info_sosmeds')->select('name','url','icon')->get();
-        return view('daftar',['jobs' => $jobs, 'religions' => $religions, 'grades' => $grades, 'majors' => $majors, 'genders' => $genders, 'si' => $si, 'sisosmed' => $sisosmed]);
+        $hotline   = DB::table('tm_hotlines as a')
+                        ->join('tm_hotline_types as b', 'a.type','=','b.id')
+                        ->select('a.name','b.name as type','a.lines')->get();
+        return view('daftar',['jobs' => $jobs, 'religions' => $religions, 'grades' => $grades, 'majors' => $majors, 'genders' => $genders, 'si' => $si, 'sisosmed' => $sisosmed, 'hotline' => $hotline]);
     }
 
     public function store(Request $r)

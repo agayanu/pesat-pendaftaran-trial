@@ -83,8 +83,11 @@
 </head>
 <body>
     <img src="{{url('images/'.$school->letter_head)}}" width="100%" alt="">
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+        TRIAL MODE
+    </div>
 	<center>
-		<h4 class="head1">BUKTI PEMBATALAN KEUANGAN SISWA BARU</h4>
+		<h4 class="head1">BUKTI PEMBATALAN SISWA BARU</h4>
         <h5 class="head2">KELAS {{strtoupper($data_daftar->grade)}}</h5>
         <h5 class="head3">{{$school->school_year}}</h5>
 	</center>
@@ -103,36 +106,38 @@
         <tr>
             <td class="valigntop">Asal Sekolah</td>
             <td class="valigntop">:</td>
-            <td>{{$data_daftar->school_name ?? $data_daftar->remark}}</td>
+            <td>{{$data_daftar->school ?? $data_daftar->remark}}</td>
         </tr>
 	</table><hr class="s1">
-    <p class="puraian">Uraian Pembatalan</p>
-    <table class="up">
-        @foreach ($dataResign as $dp)
-        <tr>
-            <td>{{$dp->myorder}}.&nbsp;&nbsp;</td>
-            <td width="250px">{{$dp->name}}</td>
-            <td>Rp. </td>
-            <td class="ttotal">{{number_format($dp->amount)}}</td>
-        </tr>
-        @endforeach
-        <tr>
-            <td></td>
-            <td class="ttotal">Jumlah&nbsp;&nbsp;</td>
-            <td>Rp.&nbsp;&nbsp;</td>
-            <td>{{number_format($dataResignSum)}}</td>
-        </tr>
-    </table>
+    @if (!empty($dataResign))
+        <p class="puraian">Uraian Pembatalan</p>
+        <table class="up">
+            @foreach ($dataResign as $dp)
+            <tr>
+                <td>{{$dp->myorder}}.&nbsp;&nbsp;</td>
+                <td width="250px">{{$dp->name}}</td>
+                <td>Rp. </td>
+                <td class="ttotal">{{number_format($dp->amount)}}</td>
+            </tr>
+            @endforeach
+            <tr>
+                <td></td>
+                <td class="ttotal">Jumlah&nbsp;&nbsp;</td>
+                <td>Rp.&nbsp;&nbsp;</td>
+                <td>{{number_format($dataResignSum)}}</td>
+            </tr>
+        </table>
+    @endif
     <hr class="s1">
     <div class="sign">
         <div class="sign-width">
             <div class="sign-date">{{$school->distric}}, {{$tgl}}</div>
         </div>
         <div class="sign-width">
-            <div class="sign-name-desc">Petugas Pembatalan</div>
+            <div class="sign-name-desc">Penerima</div>
         </div>
         <div class="sign-width">
-            <div class="sign-name">( {{$op}} )</div>
+            <div class="sign-name"><pre>(                    )</pre></div>
         </div>
     </div>
     <hr class="s2"><hr class="s3">

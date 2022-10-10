@@ -132,7 +132,8 @@ class ResignController extends Controller
         ]);
 
         if(empty($tmResign)){
-            return redirect()->back()->with('success', 'Pembatalan Berhasil - Tanpa Pemotongan');
+            $idTrResign = 0;
+            return redirect()->route('mundur-pdf',['id'=>$idRegist,'id_tr_resign'=>$idTrResign]);
         }
         $discount = DB::table('tm_resigns')->select('discount')->first();
         if($discount->discount == 0){
@@ -140,11 +141,11 @@ class ResignController extends Controller
         }
 
         $pay          = DB::table('tr_pay')->select('id','bill','amount','balance')->where('id_regist',$idRegist)->first();
-        $billDiscount = ($discount->discount / 100) * $pay->bill;
-        if($billDiscount > $pay->amount) {
-            $billDiscount = $pay->amount;
+        $billDiscountx = ($discount->discount / 100) * $pay->bill;
+        if($billDiscountx > $pay->amount) {
+            $billDiscountx = $pay->amount;
         }
-        $payAmount    = $pay->amount - $billDiscount;
+        $billDiscount = $pay->amount - $billDiscountx;
         $payBalance   = $pay->balance + $billDiscount;
         $billDetail   = DB::table('tr_pay as a')
                         ->join('tr_pay_details as b', 'a.id','=','b.id_pay')
@@ -157,7 +158,7 @@ class ResignController extends Controller
         DB::table('tr_pay')
         ->where('id',$pay->id)
         ->update([
-            'amount'     => $payAmount,
+            'amount'     => $billDiscountx,
             'balance'    => $payBalance,
             'user'       => Auth::user()->email,
             'updated_at' => now()
@@ -306,16 +307,25 @@ class ResignController extends Controller
                         ->join('tm_hotline_types as b', 'a.type','=','b.id')
                         ->select('a.name','a.lines','b.name as type')->first();
 
-        $dataResign    = DB::table('tr_resign_details as a')
-                        ->join('tm_cost_payment_details as b', 'a.id_cost_payment_detail','=','b.id')
-                        ->join('tm_cost_payment_detail_masters as c', 'b.id_detail_master','=','c.id')
-                        ->select('b.myorder','c.name','a.amount')
-                        ->where('a.id_tr_resign', $idTrResign)->get();
-        $dataResignSum = DB::table('tr_resign_details')->where('id_tr_resign', $idTrResign)->sum('amount');
-        $resign    = DB::table('tr_resigns')->select('created_at')->where('id', $idTrResign)->first();
+        if(!empty($idTrResign))
+        {
+            $dataResign    = DB::table('tr_resign_details as a')
+                            ->join('tm_cost_payment_details as b', 'a.id_cost_payment_detail','=','b.id')
+                            ->join('tm_cost_payment_detail_masters as c', 'b.id_detail_master','=','c.id')
+                            ->select('b.myorder','c.name','a.amount')
+                            ->where('a.id_tr_resign', $idTrResign)
+                            ->orderBy('b.myorder')->get();
+            $dataResignSum = DB::table('tr_resign_details')->where('id_tr_resign', $idTrResign)->sum('amount');
+        } 
+        else 
+        {
+            $dataResign    = null;
+            $dataResignSum = null;
+            $resign        = null;
+        }
 
-        // $now = now()->format('Y-m-d');
-        $now = date('Y-m-d', strtotime($resign->created_at));
+        $resign = DB::table('resigns')->select('created_at')->where('id_regist', $id)->first();
+        $now    = date('Y-m-d', strtotime($resign->created_at));
         $bulan = array (
             1 =>   'Januari',
             'Februari',
@@ -333,9 +343,7 @@ class ResignController extends Controller
         $pecahkan = explode('-', $now);
         $tanggal = $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
 
-        $op = Auth::user()->name;
-
-        $pdf = PDF::loadView('operator.resign-pdf',['school'=>$schoolInfo,'data_daftar'=>$regist,'hotline'=>$hotline,'dataResign'=>$dataResign,'dataResignSum'=>$dataResignSum,'tgl'=>$tanggal,'op'=>$op])->setPaper('a5');
+        $pdf = PDF::loadView('operator.resign-pdf',['school'=>$schoolInfo,'data_daftar'=>$regist,'hotline'=>$hotline,'dataResign'=>$dataResign,'dataResignSum'=>$dataResignSum,'tgl'=>$tanggal])->setPaper('a5');
         return $pdf->stream('Kwitansi Pembatalan - '.$regist->no_regist.'.pdf');
     }
 }

@@ -56,6 +56,16 @@
         <div class="row justify-content-center">
             <div class="col-sm-4">
             @include('flash-message')
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>Silahkan menggunakan akun Operator berikut:</strong>
+                <ul>
+                    <li>Email : operator@smapluspgri.sch.id</li>
+                    <li>Password : 123456</li>
+                </ul>
+                <hr>
+                Beli Aplikasi ini <a href="{{route('beli-aplikasi')}}">disini</a>
+                <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
+            </div>
                 <div class="card">
                     <div class="card-body">
                         <div class="tmplogo">

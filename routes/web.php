@@ -53,6 +53,7 @@ use App\Http\Controllers\PayFinishController;
 use App\Http\Controllers\ChangePayController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ResignController;
+use App\Http\Controllers\OrderAppController;
 
 Route::get('/', [DaftarController::class, 'index'])->name('index');
 Route::post('simpan', [DaftarController::class, 'store'])->name('simpan_pendaftaran');
@@ -60,6 +61,8 @@ Route::get('cetak-pdf/{crypt_period}/{crypt_no_daf}', [DaftarController::class, 
 
 Route::get('login', [AuthController::class, 'showFormLogin'])->name('login');
 Route::post('login', [AuthController::class, 'login']);
+
+Route::get('beli-aplikasi', [OrderAppController::class, 'index'])->name('beli-aplikasi');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');

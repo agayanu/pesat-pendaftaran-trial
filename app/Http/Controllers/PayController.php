@@ -107,6 +107,9 @@ class PayController extends Controller
         {
             $registPay = DB::table('tm_cost_payments')->select('id','amount')->where([['phase',$regist->phase],['grade',$regist->grade]])->first();
         }
+        if(empty($registPay)) {
+            return redirect()->back()->with('error', 'Tagihan belum dibuat!!! Silahkan hubungi Administrator');
+        }
         $registPayDetail = DB::table('tm_cost_payment_details')->select('id','amount')->where('id_payment',$registPay->id)->get();
         DB::table('tr_pay')
             ->insert([

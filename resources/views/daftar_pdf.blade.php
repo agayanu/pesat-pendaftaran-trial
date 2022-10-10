@@ -8,7 +8,7 @@
             height: 130px;
             position: absolute;
             left: 1px;
-            top: 245px;
+            top: 315px;
         }
         .valigntop {
             vertical-align: text-top;
@@ -27,6 +27,9 @@
 </head>
 <body>
     <img src="{{url('images/'.$school->letter_head)}}" width="100%" alt="">
+    <div class="alert alert-danger" role="alert" style="text-align: center">
+        TRIAL MODE
+    </div>
 	<center>
 		<h4 class="head1">DATA PENDAFTAR</h4>
         <h5 class="head2">Penerimaan Peserta Didik Baru</h5>

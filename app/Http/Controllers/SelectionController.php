@@ -351,7 +351,9 @@ class SelectionController extends Controller
             foreach ($data as $d) {
                 $da = DB::table('registrations as a')
                     ->leftJoin('tm_schools as b', 'a.school','=','b.id')
-                    ->select('a.no_regist','a.name','a.place','a.birthday','b.name as school','a.remark','a.stay_address','a.home_address','a.hp_parent','a.hp_parent2')
+                    ->join('tm_grades as c', 'a.grade','=','c.id')
+                    ->join('tm_majors as d', 'a.major','=','d.id')
+                    ->select('a.no_regist','a.name','a.place','a.birthday','b.name as school','c.name as grade','d.name as major','a.remark','a.stay_address','a.home_address','a.hp_parent','a.hp_parent2')
                     ->where('a.id',$d['id'])
                     ->first();
                 $daDad = DB::table('familys as a')
@@ -377,6 +379,8 @@ class SelectionController extends Controller
                     'place'          => $da->place,
                     'birthday'       => $birthday,
                     'school'         => $da->school ?? $da->remark,
+                    'grade'          => $da->grade,
+                    'major'          => $da->major,
                     'parent_dad'     => $daDad->name,
                     'parent_dad_job' => $daDad->job,
                     'parent_mom'     => $daMom->name,

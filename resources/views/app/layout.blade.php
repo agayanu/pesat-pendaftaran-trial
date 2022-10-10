@@ -15,6 +15,11 @@
         .sidebar-nav .nav-icon {
             flex: 0 0 3rem;
         }
+        .alert-custom {
+            padding: 0.5rem 1rem;
+            margin-bottom: 0;
+            width: 96%;
+        }
         @media (min-width: 768px){
             .sidebar-fixed.sidebar-narrow-unfoldable:not(:hover), .sidebar-fixed.sidebar-narrow {
                 z-index: 1031;
@@ -33,6 +38,11 @@
             }
             .footer-item {
                 text-align: center;
+            }
+            .alert-custom {
+                padding: 0.5rem 1rem;
+                margin-bottom: 0;
+                width: 100%;
             }
         }
     </style>
@@ -62,6 +72,9 @@
             <a class="header-brand d-md-none" href="{{ url('/') }}">
                 <img class="sidebar-brand-full" width="55" height="46" src="{{ asset('images/icons/favicon.png') }}" alt="Pesat Logo"/><div class="logoatt">PESAT</div>
             </a>
+            <div class="alert alert-custom alert-danger" role="alert">
+            <marquee>Fitur Whatsapp dan Email tidak berjalan dalam mode trial !!! Silahkan lakukan pembelian <a href="{{route('beli-aplikasi')}}">disini</a> !</marquee>
+            </div>
         </div>
     </header>
     <div class="body flex-grow-1 px-3">
@@ -70,7 +83,7 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="footer-item"><a href="https://smapluspgri.sch.id">Pesat Pendaftaran</a> © 2022 Departemen IT.</div>
+        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">Pesat Pendaftaran</a> © 2022 Departemen IT.</div>
         <div class="ms-auto footer-item">Powered by&nbsp;<a href="https://smapluspgri.sch.id">PESAT</a></div>
     </footer>
 </div>

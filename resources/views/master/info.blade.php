@@ -138,7 +138,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 mb-3">
-                    <label class="form-label">Whatsapp API <div class="required">*</div></label>
+                    <label class="form-label">Whatsapp API</label>
                     <input type="text" class="form-control @error('wa_api') is-invalid @enderror" name="wa_api" value="{{$sinfo->wa_api}}">
                     @error('wa_api')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -147,7 +147,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 mb-3">
-                    <label class="form-label">Whatsapp API Key <div class="required">*</div></label>
+                    <label class="form-label">Whatsapp API Key</label>
                     <input type="text" class="form-control @error('wa_api_key') is-invalid @enderror" name="wa_api_key" value="{{$sinfo->wa_api_key}}">
                     @error('wa_api_key')
                     <div class="invalid-feedback">{{ $message }}</div>

@@ -84,8 +84,9 @@
             <div class="alert alert-warning" role="alert">
                 <ul>
                     <li>Semua yang diberi tanda bintang (*), Wajib di isi</li>
-                    <li>Hotline 1 : 081388127557 (Whatsapp)</li>
-                    <li>Hotline 2 : (021) 8753773 (Telpon)</li>
+                    @foreach ($hotline as $h)
+                    <li>{{$h->name}} : {{$h->lines}} ({{$h->type}})</li>
+                    @endforeach
                 </ul>
             </div>
             <form method="POST" action="{{ route('simpan_pendaftaran') }}" enctype="multipart/form-data" class="needs-validation" novalidate>
