@@ -74,7 +74,7 @@ class CreateRegistrationsTable extends Migration
             $table->string('email_student')->nullable();
             $table->string('email_parent')->nullable();
             $table->string('email_parent2')->nullable();
-            $table->smallInteger('school')->nullable();
+            $table->integer('school')->nullable();
             $table->smallInteger('school_year')->nullable();
             $table->float('school_nem_avg', 4, 2)->nullable();
             $table->float('school_sttb_avg', 4, 2)->nullable();

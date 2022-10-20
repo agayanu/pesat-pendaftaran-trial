@@ -81,6 +81,9 @@
     <div class="card mb-3">
         <div class="card-body">
             @include('flash-message')
+            <div class="alert alert-info" role="alert">
+                <strong>Silahkan login <a href="{{route('login')}}">disini</a></strong>
+            </div>
             <div class="alert alert-warning" role="alert">
                 <ul>
                     <li>Semua yang diberi tanda bintang (*), Wajib di isi</li>

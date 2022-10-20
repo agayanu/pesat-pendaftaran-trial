@@ -56,7 +56,7 @@ class ResignExport implements FromCollection, WithMapping, WithHeadings, WithSty
                 'Nama',
                 'Kelompok',
                 'Jurusan',
-                'Potongan',
+                'Dikembalikan',
                 'Keterangan',
                 'User',
                 'Update',

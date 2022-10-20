@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 
-class RegistFakeSeeder extends Seeder
+class RegistFake2Seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -26,11 +26,11 @@ class RegistFakeSeeder extends Seeder
                         'account2_max',
                     )
                     ->first();
-        $period  = 2020;
+        $period  = 2021;
         $fams    = DB::table('tm_familymembers')->select('id')->get();
         $docs    = DB::table('tm_regist_documents')->select('id')->get();
 
-        for ($i=0; $i < 626; $i++) { 
+        for ($i=0; $i < 641; $i++) { 
             $randSchool   = DB::table('tm_schools')->select('id')->inRandomOrder()->first();
             $randGrade    = DB::table('tm_grades')->select('id')->inRandomOrder()->first();
             $randMajor    = DB::table('tm_majors')->select('id')->inRandomOrder()->first();
@@ -63,7 +63,7 @@ class RegistFakeSeeder extends Seeder
                                 'status'        => 1,
                                 'grade'         => $randGrade->id,
                                 'major'         => $randMajor->id,
-                                'phase'         => 1,
+                                'phase'         => 3,
                                 'name'          => $name,
                                 'religion'      => $randReligion->id,
                                 'gender'        => $gender,

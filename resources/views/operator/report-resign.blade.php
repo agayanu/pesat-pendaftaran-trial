@@ -37,7 +37,7 @@
                         <th>Nama</th>
                         <th>Kelompok</th>
                         <th>Jurusan</th>
-                        <th>Potongan</th>
+                        <th>Dikembalikan</th>
                         <th>Keterangan</th>
                         <th>User</th>
                         <th>Update</th>

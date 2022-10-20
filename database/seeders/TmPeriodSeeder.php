@@ -15,7 +15,9 @@ class TmPeriodSeeder extends Seeder
     public function run()
     {
         $periods = [
-            ['id' => 1, 'period' => date('Y'), 'status' => 'Y', 'created_at' => now()],
+            ['id' => 1, 'period' => 2020, 'status' => 'N', 'created_at' => now()],
+            ['id' => 2, 'period' => 2021, 'status' => 'N', 'created_at' => now()],
+            ['id' => 3, 'period' => 2022, 'status' => 'Y', 'created_at' => now()],
         ];
 
         DB::table('tm_periods')->insert($periods);
