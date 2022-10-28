@@ -6,12 +6,11 @@
 
 ## About
 
-Pesat Pendaftaran adalah aplikasi untuk membantu anda dalam mengelola data PPDB. Adapun beberapa fitur yang didapatkan, diantaranya:
+SmartReg adalah aplikasi untuk membantu anda dalam mengelola data PPDB. Adapun beberapa fitur yang didapatkan, diantaranya:
 
 - Dapat di akses di semua gadget (Laptop/Komputer, Phone/Smartphone dan Tablet).
 - Tersedia 34K++ data sekolah di indonesia, dan masih dapat ditambahkan ataupun dikelola.
 - Tersedia 7K++ data kecamatan, 500++ data Kabupaten dan Kota, dan 34 Provinsi di indonesia, dan masih dapat ditambahkan ataupun dikelola.
-- Opensource (dapat dikembangkan lagi secara mandiri).
 - Pendaftaran dapat di setting menggunakan pembiayaan ataupun tidak.
 - Auto Generate Virtual Account Bank.
 - Item kelengkapan data siswa yang lengkap.
