@@ -27,6 +27,11 @@
             text-align: center;
             margin-top: 10px;
         }
+        .badge-price {
+            padding: 0.3em 0.5em;
+            font-size: 0.40em;
+            vertical-align: top;
+        }
         @media (max-width: 600px){
             .footer {
                 display: block;
@@ -51,7 +56,7 @@
             <div class="alert alert-info fade show" role="alert">
                 <div class="row">
                     <div class="col" style="text-align: center;">
-                        <h3>PESAT PENDAFTARAN</h3>
+                        <h3>SMARTREG</h3>
                     </div>
                 </div>
             </div>
@@ -78,7 +83,7 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h4>Standard</h4>
-                            Rp <div class="price">1.000.000</div><br>
+                            Rp <div class="price">999.999<span class="badge badge-sm bg-danger badge-price">PROMO</span></div><br>
                             <div class="row">
                                 <div class="col col-order">
                                     <div class="d-grid gap-2 col-8 mx-auto">
@@ -95,9 +100,6 @@
                             <div class="collapse" id="collapseExample">
                                 <div class="callout callout-info">
                                     Tersedia 7K++ data kecamatan, 500++ data Kabupaten dan Kota, dan 34 Provinsi di indonesia, dan masih dapat ditambahkan ataupun dikelola
-                                </div>
-                                <div class="callout callout-info">
-                                    Opensource (dapat dikembangkan lagi secara mandiri)
                                 </div>
                                 <div class="callout callout-info">
                                     Pendaftaran dapat di setting menggunakan pembiayaan ataupun tidak
@@ -142,7 +144,7 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">Pesat Pendaftaran</a> © 2022 Departemen IT.</div>
+        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">SmartReg</a> © 2022 Departemen TIK.</div>
         <div class="ms-auto footer-item">Powered by&nbsp;<a href="https://smapluspgri.sch.id">PESAT</a></div>
     </footer>
 </div>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendaftaran - {{$si->name}}</title>
+    <title>SmartReg - {{$si->name}}</title>
     <link rel="shortcut icon" href="{{ asset('images/icons/'.$si->icon) }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('coreui-ori/css/vendors/simplebar.css') }}">
     <link rel="stylesheet" href="{{ asset('simplebar/dist/simplebar.css') }}">
@@ -82,7 +82,7 @@
         @yield('content')
     </div>
     <footer class="footer">
-        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">Pesat Pendaftaran</a> © 2022 Departemen IT.</div>
+        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">SmartReg</a> © 2022 Departemen TIK.</div>
         <div class="ms-auto footer-item">Powered by&nbsp;<a href="https://smapluspgri.sch.id">PESAT</a></div>
     </footer>
 </div>

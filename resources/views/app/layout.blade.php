@@ -83,7 +83,7 @@
         </div>
     </div>
     <footer class="footer">
-        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">Pesat Pendaftaran</a> © 2022 Departemen IT.</div>
+        <div class="footer-item"><a href="{{route('beli-aplikasi')}}">SmartReg</a> © 2022 Departemen TIK.</div>
         <div class="ms-auto footer-item">Powered by&nbsp;<a href="https://smapluspgri.sch.id">PESAT</a></div>
     </footer>
 </div>

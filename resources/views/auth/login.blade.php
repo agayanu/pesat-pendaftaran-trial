@@ -63,7 +63,7 @@
                     <li>Password : 123456</li>
                 </ul>
                 <hr>
-                Beli Aplikasi ini <a href="{{route('beli-aplikasi')}}">disini</a>
+                Beli SmartReg <a href="{{route('beli-aplikasi')}}">disini</a>
                 <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
             </div>
                 <div class="card">
